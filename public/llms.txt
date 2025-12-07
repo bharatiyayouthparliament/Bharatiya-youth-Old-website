@@ -1,0 +1,23 @@
+## Pages
+- [About Us - Bharatiya Youth Parliament](/about): No description available
+- [Admin Dashboard - Bharatiya Youth Parliament](/admin/dashboard): No description available
+- [Admin Login - Bharatiya Youth Parliament](/admin/login): No description available
+- [Swami Vivekananda Award - Bharatiya Youth Parliament](/awards): Swami Vivekananda Awards at Bharatiya Youth Parliament honor exceptional individuals contributing to Environment, Peace, and Social Service.
+- [- Bharatiya Youth Parliament](/blog/:id): No description available
+- [Blog - Bharatiya Youth Parliament](/blog): Insights, stories, and perspectives on youth leadership, civic engagement, and democratic participation.
+- [Contact Us - Bharatiya Youth Parliament](/contact): No description available
+- [Global Youth Summit - BYP 2025](/global-summit-registration): Register for the Global Summit at Bharatiya Youth Parliament 2025.
+- [Bharatiya Youth Parliament - Empowering Youth, Shaping Tomorrow](/): Join Bharatiya Youth Parliament 2025, organized by SRRO. A movement to inspire and empower the next generation of change-makers in India.
+- [- Media Gallery](/mediadetail): No description available
+- [Media - Bharatiya Youth Parliament](/media): Explore media coverage, photos, and galleries from Bharatiya Youth Parliament events.
+- [Organizing Committee - Bharatiya Youth Parliament](/team/organizing-committee): No description available
+- [Parliamentary Sessions - Bharatiya Youth Parliament](/sessions): A history of our impactful parliamentary sessions.
+- [Participant Registration - Bharatiya Youth Parliament](/participant-registration): Register as a participant for Bharatiya Youth Parliament.
+- [Privacy Policy - Bharatiya Youth Parliament](/privacy-policy): Privacy Policy for the Bharatiya Youth Parliament website.
+- [Reception Committee - Bharatiya Youth Parliament](/team/reception-committee): No description available
+- [Register - Bharatiya Youth Parliament](/register): Register for the Bharatiya Youth Parliament event.
+- [Registration Successful - BYP](/registration-success): No description available
+- [Our Sessions - Bharatiya Youth Parliament](/session): Details about the past and upcoming sessions of the Bharatiya Youth Parliament.
+- [Our Speakers - Bharatiya Youth Parliament](/speakers): No description available
+- [Terms & Conditions - Bharatiya Youth Parliament](/tandcpage): Terms & Conditions for participation in the Bharatiya Youth Parliament 2026 events.
+- [Our Team - Bharatiya Youth Parliament](/team): Meet the dedicated teams behind the Bharatiya Youth Parliament, including the Organization and Reception Committees.
