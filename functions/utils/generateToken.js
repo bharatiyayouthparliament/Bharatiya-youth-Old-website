@@ -1,6 +1,17 @@
 import admin from "firebase-admin";
 
+/**
+ * Generate a unique registration token with the specified prefix
+ * Format: {prefix}/{year}/{month}/{serial}
+ * 
+ * @param {string} prefix - The prefix for the token (e.g., "BYPC", "GSR")
+ * @returns {Promise<Object>} - Object containing token, year, month, and serial
+ */
 export async function generateToken(prefix) {
+  // Ensure admin is initialized (should be done in index.js)
+  if (!admin.apps.length) {
+    admin.initializeApp();
+  }
   const now = new Date();
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, "0");
