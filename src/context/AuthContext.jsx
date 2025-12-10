@@ -17,6 +17,10 @@ export const AuthProvider = ({ children }) => {
 
   /* ---------------------- LOGIN ----------------------- */
   const login = async (usernameOrEmail, password) => {
+    if (!auth || !db) {
+      return { success: false, message: "Firebase is not configured. Please contact the administrator." };
+    }
+
     try {
       const credential = await signInWithEmailAndPassword(auth, usernameOrEmail, password);
 
@@ -52,7 +56,13 @@ export const AuthProvider = ({ children }) => {
 
   /* ---------------------- LOGOUT ----------------------- */
   const logout = async () => {
-    await signOut(auth);
+    if (auth) {
+      try {
+        await signOut(auth);
+      } catch (error) {
+        console.warn("Logout error:", error);
+      }
+    }
     localStorage.removeItem("byp_auth_user");
     setUser(null);
     navigate("/admin/login");
@@ -60,6 +70,12 @@ export const AuthProvider = ({ children }) => {
 
   /* ------------------ AUTH RESTORE --------------------- */
   useEffect(() => {
+    // If Firebase is not configured, skip auth state listener
+    if (!auth || !db) {
+      setLoading(false);
+      return;
+    }
+
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
 
       if (!firebaseUser) {
@@ -68,28 +84,34 @@ export const AuthProvider = ({ children }) => {
         return;
       }
 
-      const adminRef = doc(db, "admins", firebaseUser.uid);
-      const adminSnap = await getDoc(adminRef);
+      try {
+        const adminRef = doc(db, "admins", firebaseUser.uid);
+        const adminSnap = await getDoc(adminRef);
 
-      if (!adminSnap.exists()) {
+        if (!adminSnap.exists()) {
+          setUser(null);
+          setLoading(false);
+          return;
+        }
+
+        const admin = adminSnap.data();
+
+        const userObj = {
+          uid: firebaseUser.uid,
+          email: firebaseUser.email,
+          role: admin.role,
+          name: admin.name,
+        };
+
+        setUser(userObj);
+        localStorage.setItem("byp_auth_user", JSON.stringify(userObj));
+
+        setLoading(false);
+      } catch (error) {
+        console.warn("Auth state check failed:", error);
         setUser(null);
         setLoading(false);
-        return;
       }
-
-      const admin = adminSnap.data();
-
-      const userObj = {
-        uid: firebaseUser.uid,
-        email: firebaseUser.email,
-        role: admin.role,
-        name: admin.name,
-      };
-
-      setUser(userObj);
-      localStorage.setItem("byp_auth_user", JSON.stringify(userObj));
-
-      setLoading(false);
     });
 
     return () => unsubscribe();
